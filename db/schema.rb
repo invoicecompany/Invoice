@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128153304) do
+ActiveRecord::Schema.define(version: 20151204170400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "adminpack"
 
   create_table "customers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -57,9 +56,14 @@ ActiveRecord::Schema.define(version: 20151128153304) do
 
   create_table "products", force: :cascade do |t|
     t.string   "nombre"
-    t.text     "descrip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "descripcion"
+    t.integer  "codigo"
+    t.integer  "precio"
+    t.string   "categoria"
+    t.string   "subcategoria"
+    t.string   "marca"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

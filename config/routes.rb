@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :products
   devise_for :dealers
   devise_for :customers
     get '/distribuidor/:id' => 'dealers#show'
