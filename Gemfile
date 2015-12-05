@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 #Gemas agregadas
 
 	gem 'devise'
-
+	
 #Fin de Gemas
 
 # Use jquery as the JavaScript library
