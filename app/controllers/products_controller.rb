@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_dealer!, unless: "customer_signed_in?"
+  before_action :authenticate_customer!, unless: "dealer_signed_in?"
+
 
   # GET /products
   # GET /products.json
