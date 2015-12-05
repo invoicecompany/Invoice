@@ -1,0 +1,10 @@
+<%= link_to 'Borrar pedido', order_clear_path %><br><br> <br>
+<% @cart.each do | id, key | %>
+  <% product = Product.find_by_id(id) %>
+  <li>
+    <tr><%= product.nombre %></tr>
+    <th>|<%= key %></th>
+  </li>
+<% end %>
+<p><%= link_to 'Comprar', controller: "orders", action: "new" %></p> <br>
+<p><%= link_to 'Seguir Comprando', controller: "products", action: "index" %></p>

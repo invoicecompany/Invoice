@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :orders
+      get '/add' => 'orders#add_product'
+      get '/order/clear' => 'orders#clearCart'
+
   resources :products
+  
   devise_for :dealers
   devise_for :customers
     get '/distribuidor/:id' => 'dealers#show'
