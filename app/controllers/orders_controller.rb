@@ -40,8 +40,7 @@ class OrdersController < ApplicationController
   end
   # GET /orders/new
   def new
-      @order = Order.new
-      #@order.cliente = "Gloria"
+      @order = current_customer.orders.new
       @order.productos = {}
       @order.productos.merge!($cart)
       @order.save

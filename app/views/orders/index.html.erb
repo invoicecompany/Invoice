@@ -1,10 +1,22 @@
-<%= link_to 'Borrar pedido', order_clear_path %><br><br> <br>
-<% @cart.each do | id, key | %>
-  <% product = Product.find_by_id(id) %>
-  <li>
-    <tr><%= product.nombre %></tr>
-    <th>|<%= key %></th>
-  </li>
-<% end %>
-<p><%= link_to 'Comprar', controller: "orders", action: "new" %></p> <br>
-<p><%= link_to 'Seguir Comprando', controller: "products", action: "index" %></p>
+<%= link_to 'Borrar pedido', order_clear_path %>
+
+       <% total = 0 %>
+
+	<% @cart.each do | id, quantity | %>
+
+		<% product = Product.find_by_id(id) %>
+
+			<%= product.nombre %>
+			<%= quantity %>
+			<%= number_to_currency(product.precio, :unit => '$' ) %>
+			<% totalproduct = product.precio * quantity.to_i %>
+			<%= number_to_currency(totalproduct, :unit => '$' ) %>
+
+		<% total += quantity.to_i * product.precio %>
+
+	<% end %>
+
+		<%= number_to_currency(total, :unit => '$' ) %>
+
+<%= link_to 'Comprar', controller: "orders", action: "new" %>
+<%= link_to 'Seguir Comprando', controller: "products", action: "index" %>
