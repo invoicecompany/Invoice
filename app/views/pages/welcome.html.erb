@@ -1,2 +1,10 @@
-<h1>Pages#welcome</h1>
-<p>Find me in app/views/pages/welcome.html.erb</p>
+<div class="contenedor">
+	<div class="titulos">
+		<h1 class="t_inicio">Pages#welcome</h1><br>
+		<p class="frase">Find me in app/views/pages/welcome.html.erb</p><br>
+	</div>
+	<div class="botones">
+		<div class="btn btn-1"><%= link_to 'Microempresas' , :controller =>"pages" , :action => "microempresas"%></div>
+		<div class="btn btn-1"><%= link_to 'Distribuidor' , :controller =>"pages" , :action => "distribuidores"%></div>
+	</div>
+</div>
