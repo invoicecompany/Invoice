@@ -1,5 +1,9 @@
 == README
 
+                                                                                      Josué 1:9Reina-Valera 1960 (RVR1960)
+
+Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

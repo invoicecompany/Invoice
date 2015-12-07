@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order = Order.first
+    @order = Order.find(params[:id])
   end
   def clearCart
     session[:cart] = nil
@@ -40,8 +40,7 @@ class OrdersController < ApplicationController
   end
   # GET /orders/new
   def new
-      @order = Order.new
-      #@order.cliente = "Gloria"
+      @order = current_customer.orders.new
       @order.productos = {}
       @order.productos.merge!($cart)
       @order.save
