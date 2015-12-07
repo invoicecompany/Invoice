@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order = Order.first
+    @order = Order.find(params[:id])
   end
   def clearCart
     session[:cart] = nil
