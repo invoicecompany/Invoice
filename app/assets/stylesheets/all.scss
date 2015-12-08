@@ -1,0 +1,17 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+.contenedor{
+	width:90%;
+	height: auto;
+	background-color:#E8E7E7;
+	padding: 10px;
+	margin: 0px auto;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,40 @@
+.btn {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: white;
+	background: none;
+	cursor: pointer;
+	padding: 20px 20px;
+	margin: 20px 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	transition: all 0.3s;
+}
+
+.btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	transition: all 0.3s;
+}
+.btn-1 {
+	background: #ddd;
+	color: #fff;
+	box-shadow: 0 6px #ccc;
+	border-radius: 20px;
+	transition: none;
+}
+
+.btn-1:hover {
+	box-shadow: 0 4px #ccc;
+	top: 2px;
+}
+
+.btn-1:active {
+	box-shadow: 0 0 #ccc;
+	top: 6px;
+}
