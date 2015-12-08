@@ -17,6 +17,7 @@
 	<% @cart.each do | id, quantity | %>
 		<tr>
 		<% product = Product.find_by_id(id) %>
+			<% if product.categoria == "Carnes" %>
 			<td><%= product.codigo %></td>
 			<td><%= product.nombre %></td>
 			<td><%= product.categoria %></td>
@@ -26,6 +27,7 @@
 			<td><%= number_to_currency(totalproduct, :unit => '$' ) %></td>
 		</tr>
 		<% total += quantity.to_i * product.precio %>
+		<% end %>
 	<% end %>
 	
 	</div>
