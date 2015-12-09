@@ -1,0 +1,46 @@
+.formulario{
+	margin: 0px 30px;
+	background-color: #F7F3F3;
+	padding: 50px;
+}
+.field{
+	position: relative;
+	margin-bottom: 30px;
+}
+.field .email,
+.field .pass{
+	font-size: 16px;
+    color: gray;
+    outline: none;
+    padding: 5px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+}
+.field .email:focus,
+.field .email:active,
+.field .pass:focus,
+.field .pass:active{
+	outline: none;
+	border-bottom: 2px solid blue;
+}
+label{
+	color: #777777;
+}
+.etiqueta{
+-webkit-transition: all .3s ease;
+-o-transition: all .3s ease;
+transition: all .3s ease;
+margin: 5px 0px 0px 2px;
+margin-left: 15px;
+font-size: 16px;
+line-height: 16px;
+top: 16px;
+left: 0;
+}
+.etiqueta.active{
+     top: -12px;
+     font-size: 12px;
+     line-height: 12px;
+     color: #b6b6b6;
+}
