@@ -1,7 +1,9 @@
 <% if customer_signed_in? %>
     <h1>Ya has ingresa session como Microempresa </h1>
 <% else %>
+
 <div class="formulario">
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
