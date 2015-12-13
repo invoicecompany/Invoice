@@ -1,1 +1,5 @@
 <p><%= @Customer.email %></p>
+<% @Order.each do |order| %>
+	<% order.updated_at%>
+  <%= link_to order.updated_at, order_path, id: order.id %>
+<% end %>

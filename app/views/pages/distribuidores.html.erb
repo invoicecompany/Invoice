@@ -1,5 +1,10 @@
-<div class="contenedor">
+<nav>
+	<ul>
+		<%= render "pages/navsinsession"%>
+	<li>
+		<%= button_to "Entrar", new_dealer_session_path, method: :get, class: 'btn btn-entrar' %>
+		<%= button_to "Registrar", new_dealer_registration_path, method: :get, class: 'btn btn-registrar' %>
+	</li>
+	</ul>
+</nav>
 <h1>Pages#Distribuidores</h1>
-<div class="btn btn-1"><%= link_to 'Entrar' , new_dealer_session_path %></div>
-<div class="btn btn-1"><%= link_to 'Registrar' , new_dealer_registration_path %></div>
-</div>

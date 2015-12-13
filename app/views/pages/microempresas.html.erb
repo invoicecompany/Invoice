@@ -1,2 +1,11 @@
+<nav>
+	<ul>
+		<%= render "pages/navsinsession"%>
+	<li>
+		<%= button_to "Entrar", new_customer_session_path, method: :get, class: 'btn btn-entrar' %>
+		<%= button_to "Registrar", new_customer_registration_path, method: :get, class: 'btn btn-registrar' %>
+	</li>
+	</ul>
+</nav>
 <h1>Pages#Microempresas</h1>
 

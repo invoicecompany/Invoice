@@ -14,7 +14,7 @@
  *= require_self
  */
 *{
-	box-sizing: border-box;
-	padding: 0px;
-	margin: 0px;
+	margin:0px;
+	padding:0px;
+	font-family: Century Gothic;
 }
