@@ -1,43 +1,44 @@
 <% if dealer_signed_in? %>
     <h1>Ya has ingresa session como Distribuidor </h1>
 <% else %>
-  
+<div class="formulario">  
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 <div class="field">
-    <%= f.label :Nombre_del_negocio %><br />
-    <%= f.text_field :nombrenegocio, autofocus: true %>
+    <%= f.label :Nombre_del_negocio, :class=>"etiqueta" %><br />
+    <%= f.text_field :nombrenegocio, :class=>"nombreN", autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :Nombre_del_propietario %><br />
-    <%= f.text_field :nombrepropietario, autofocus: true %>
+    <%= f.label :Nombre_del_propietario, :class=>"etiqueta" %><br />
+    <%= f.text_field :nombrepropietario, :class=>"nombreP", autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email, :class=>"etiqueta" %><br />
+    <%= f.email_field :email, :class=>"email", autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, :class=>"etiqueta" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, :class=>"pass", autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :password_confirmation, :class=>"etiqueta" %><br />
+    <%= f.password_field :password_confirmation, :class=>"pass", autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class=>"enviar" %>
   </div>
 <% end %>
 
 <%= render "customers/shared/links" %>
 <% end %>
+</div>
