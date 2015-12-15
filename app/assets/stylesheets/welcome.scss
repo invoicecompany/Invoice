@@ -4,9 +4,22 @@
 .frase{
 	background-color: #ddd;
 }
-.titulo{
-	flex-direction: column
+.texto-welcome{
+	margin-top: 10%;
+	flex-direction: column;
+	text-align: center;
 }
 .botones{
-	flex-direction: row;
+	display: flex;
+	justify-content: center;
+}
+.btn-p{
+	font-size: 35px !important;
+
+}
+@media (max-width: 600px) {
+	.botones{
+		flex-direction: column;
+		align-items: center;
+	}
 }

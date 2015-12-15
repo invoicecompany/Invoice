@@ -1,10 +1,10 @@
 <div class="contenedor">
-	<div class="titulos">
-		<h1 class="t_inicio">Pages#welcome</h1><br>
-		<p class="frase">Find me in app/views/pages/welcome.html.erb</p><br>
+	<div class="texto-welcome">
+		<h1 class="t_inicio">Invoice Company</h1><br>
+		<p class="frase">"El servicio tendero-proveedor mas eficaz que un gordo en bicicleta"</p><br>
 	</div>
 	<div class="botones">
-		<%= button_to 'Microempresas' , microempresas_path, method: :get%>
-		<%= button_to 'Distribuidor' , distribuidores_path, method: :get%>
+		<%= button_to 'Microempresas' , microempresas_path, method: :get, class: 'btn btn-p btn-mic' %>
+		<%= button_to 'Distribuidor' , distribuidores_path, method: :get, class: 'btn btn-p btn-dis' %>
 	</div>
 </div>

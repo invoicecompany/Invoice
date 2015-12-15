@@ -23,15 +23,7 @@ li:last-child{
 	justify-content: flex-end;
 
 }
-.btn{
-	border-style: none;
-	padding: 6px 15px;
-	margin: 0px 5px;
-	font-size: 18px;
-	font-weight: bold;
-	color: white;
-	display: flex;
-}
+
 .btn-entrar{
 	background-color: #7dcd40;
 }
@@ -41,13 +33,13 @@ li:last-child{
 img{
 	width: 70px;
 }
+.sign-out{
+	color: red;
+}
 @media (max-width: 600px) {
 ul{
 	flex-direction: column;
 	align-items: center;
-}
-.btn{
-	margin: 0px 0px 6px 0px ;
 }
 
   }

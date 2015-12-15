@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 #Gemas agregadas
 
 	gem 'devise'
+	gem 'whenever', :require => false
 	
 #Fin de Gemas
 

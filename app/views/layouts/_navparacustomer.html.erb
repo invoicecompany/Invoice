@@ -2,8 +2,11 @@
 	Microempresa
 </li>
 <li>
-	<%= button_to 'Pedido', products_path, method: :get %>
+	<%= button_to 'Pedido', products_path, method: :get, class: 'btn' %>
 </li>
 <li>
-	<%= link_to "Sign out", destroy_customer_session_path, method: :delete %>
+	<a href="http://localhost:3000/microempresa/<%= current_customer.id %>">Perfil</a>
+</li>
+<li>
+	<%= link_to "Salir", destroy_customer_session_path, method: :delete, class: 'sign-out' %>
 </li>
