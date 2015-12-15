@@ -8,9 +8,11 @@
 	margin-bottom: 30px;
 }
 .field .nombreN,
-.field .nombrep,
+.field .nombreP,
 .field .email,
-.field .pass{
+.field .pass,
+#cant{
+    margin-bottom: 5px;
 	font-size: 16px;
     color: gray;
     outline: none;
@@ -21,12 +23,14 @@
 }
 .field .nombreN:focus,
 .field .nombreN:active,
-.field .nombreN:focus,
-.field .nombreN:active,
+.field .nombreP:focus,
+.field .nombreP:active,
 .field .email:focus,
 .field .email:active,
 .field .pass:focus,
-.field .pass:active{
+.field .pass:active,
+#cant:active,
+#cant:focus{
 	outline: none;
 	border-bottom: 2px solid blue;
 }
