@@ -2,49 +2,35 @@
 
 <h1>Listing Products</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th>Codigo</th>
-      <th>Precio</th>
-      <th>Categoria</th>
-      <th>Subcategoria</th>
-      <th>Marca</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="contenedor_productos">
     <% @products.each do |product| %>
-      <tr>
-        <td><%= product.nombre %></td>
-        <td><%= product.descripcion %></td>
-        <td><%= product.codigo %></td>
-        <td><%= product.precio %></td>
-        <td><%= product.categoria %></td>
-        <td><%= product.subcategoria %></td>
-        <td><%= product.marca %></td>
+      <div class="productos">
+        <div><strong>Nombre: </strong><%= product.nombre %></div>
+        <div><strong>Descripcion: </strong><%= product.descripcion %></div>
+        <div><strong>Codigo: </strong><%= product.codigo %></div>
+        <div><strong>Precio: </strong><%= product.precio %></div>
+        <div><strong>Categoria: </strong><%= product.categoria %></div>
+        <div><strong>Subcategoria: </strong><%= product.subcategoria %></div>
+        <div><strong>Marca: </strong><%= product.marca %></div>
         <%if customer_signed_in? %>
-        <td>      <%= form_tag({controller: "orders", action: "add_product" }, :method => "get") do %>
+        <div>      <%= form_tag({controller: "orders", action: "add_product" }, :method => "get") do %>
                       <%= hidden_field_tag( :id , product.id ) %><br>
                       <%= text_field_tag( :cant ) %><br>
                       <%= submit_tag("Pedir") %><br>
                       <% end %>
-        </td>
+        </div>
         <% else %>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div><%= link_to 'Show', product %></div>
+        <div><%= link_to 'Edit', edit_product_path(product) %></div>
+        <div><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+      <% end %>
 
-<br>
-<%if dealer_signed_in? %>
-  <%= link_to 'New Product', new_product_path %>
-<% end %>
 
+    
+   <div class="New_product"> <%if dealer_signed_in? %>
+      <%= link_to 'New Product', new_product_path %>
+    <% end %></div>
+    </div>
+</div>

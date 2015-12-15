@@ -43,6 +43,7 @@ class OrdersController < ApplicationController
   end
 
 #Sirve para hacer la compra y quedar guarda en la base de datos
+
     def new
       @fecha_entrega = Date.today
       @order = current_customer.orders.new

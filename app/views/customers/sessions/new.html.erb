@@ -2,32 +2,33 @@
     <h1>Ya has ingresa session como Distribuidor </h1>
 <% else %>
   
+<div class="formulario">  
 <h2>Ingresa</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email, :class=>"etiqueta" %><br />
+    <%= f.email_field :email, :class=>"email", autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label :password, :class=>"etiqueta" %><br />
+    <%= f.password_field :password, :class=>"pass", autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.check_box :remember_me, :class => "checkbox" %>
+      <%= f.label :remember_me, :class => "checkbox_label" %>
     </div>
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", :class=>"enviar" %>
   </div>
 <% end %>
 
 <%= render "customers/shared/links" %>
 
 <% end %>
-
+</div>
