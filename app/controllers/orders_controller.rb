@@ -18,7 +18,11 @@ class OrdersController < ApplicationController
       cart = session[:cart]
     end
 
-      cart[$categoria].merge!($producto)
+    if cart[$categoria]
+            cart[$categoria].merge!($producto)
+    else
+            cart[$categoria] = ($producto)
+    end
       $cart = session[:cart]
       $cart = @cart
 
@@ -53,12 +57,19 @@ class OrdersController < ApplicationController
 #Sirve para hacer la compra y quedar guarda en la base de datos
 
     def new
-      @fecha_entrega = Date.today
-      @order = current_customer.orders.new
-      @order.productos = {}
-      @order.productos.merge!($cart)
-      @order.save
-    
+
+      $cart.each do  |cate, prod|
+        if cate == "Confiteria"
+          $peo = prod
+        end
+      
+      end
+
+      Order.find_or_create_by(customer_id:  current_customer, fecha_entrega: Date.today ) do | order |
+        @produ = order.productos = order.productos.merge!($peo)
+        order.update(productos: @produ)
+        order.save
+      end
       session[:cart] = nil
       redirect_to "http://localhost:3000/"
   end

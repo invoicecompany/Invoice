@@ -1,5 +1,18 @@
 
 <%= link_to 'Borrar pedido', order_clear_path %>
-<%= @cart %>
+
+<% @cart.each do |cate,  prod| %>
+<table border="solid">
+
+	 <tr><th><%= cate %></th></tr>
+	<% prod.each do | id, cant| %>
+		<% @product = Product.find_by_id(id) %>
+		<tr><td><%= @product.nombre %></td></tr>
+	<% end %>
+
+</table>
+<% end %>
+
+
 <%= link_to 'Comprar', controller: "orders", action: "new" %>
 <%= link_to 'Seguir Comprando', controller: "products", action: "index" %>

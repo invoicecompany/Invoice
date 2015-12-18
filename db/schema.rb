@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214022626) do
+ActiveRecord::Schema.define(version: 20151218160934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,7 +74,11 @@ ActiveRecord::Schema.define(version: 20151214022626) do
     t.string   "marca"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "dealer_id"
   end
 
+  add_index "products", ["dealer_id"], name: "index_products_on_dealer_id", using: :btree
+
   add_foreign_key "orders", "customers"
+  add_foreign_key "products", "dealers"
 end
