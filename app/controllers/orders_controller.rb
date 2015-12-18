@@ -2,18 +2,26 @@ class OrdersController < ApplicationController
   before_action :authenticate_customer!
 
   # Sirver para agregar un nuevo producto al pedido
-  def add_product
-    $id = params[:id]
-    $cant = params[:cant]
+    def add_product
 
-    if session[:cart] then
+    $categoria = params[:cate]
+    $id = params[:id]
+    $cantidad = params[:cant]
+
+    $producto = {$id => $cantidad}
+
+  if session[:cart] then
       cart = session[:cart]
       
     else
       session[:cart] = {}
       cart = session[:cart]
     end
-      cart[$id] = $cant
+
+      cart[$categoria].merge!($producto)
+      $cart = session[:cart]
+      $cart = @cart
+
     redirect_to :action => :index
   end
 

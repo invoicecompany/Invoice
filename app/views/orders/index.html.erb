@@ -1,40 +1,5 @@
-<div class="factura">
-<div class="box">
-<%= link_to 'Borrar pedido', order_clear_path %>
-</div>
-       <% total = 0 %>
-       	<div class="productos box">
 
-       	<table border>
-       		<tr>
-       			<td>Codigo</td>
-       			<td>Producto</td>
-       			<td>Categoria</td>
-       			<td>Cantidad</td>
-       			<td>Valor Unit</td>
-       			<td>Valor Neto</td>
-       		</tr>
-	<% @cart.each do | id, quantity | %>
-		<tr>
-		<% product = Product.find_by_id(id) %>
-			<td><%= product.codigo %></td>
-			<td><%= product.nombre %></td>
-			<td><%= product.categoria %></td>
-			<td><%= quantity %></td>
-			<td><%= number_to_currency(product.precio, :unit => '$' ) %></td>
-			<% totalproduct = product.precio * quantity.to_i %>
-			<td><%= number_to_currency(totalproduct, :unit => '$' ) %></td>
-		</tr>
-		<% total += quantity.to_i * product.precio %>
-	<% end %>
-	
-	</div>
-	<div class="box">
-		<tr>
-		<td colspan="5">Total Neto</td>
-		<td><%= number_to_currency(total, :unit => '$' ) %></td>
-		</tr>
-	</table>
+<%= link_to 'Borrar pedido', order_clear_path %>
+<%= @cart %>
 <%= link_to 'Comprar', controller: "orders", action: "new" %>
 <%= link_to 'Seguir Comprando', controller: "products", action: "index" %>
-	</div>
