@@ -1,13 +1,21 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_dealer!, unless: "customer_signed_in?"
-  before_action :authenticate_customer!, unless: "dealer_signed_in?"
+  before_action :authenticate_dealer!, only: [:show, :edit, :update, :destroy, :new, :create]
 
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+      if dealer_signed_in?
+      @products = Product.where(dealer_id: current_dealer.id)
+      else
+      @q = params[:ask]
+      if @q
+      @products = Product.where("nombre LIKE ?", "%#{params[:ask]}%")
+      else
+      @products = Product.all
+      end
+      end
   end
 
   # GET /products/1

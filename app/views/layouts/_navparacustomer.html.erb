@@ -2,7 +2,10 @@
 	Microempresa
 </li>
 <li>
-	<%= button_to 'Pedido', products_path, method: :get, class: 'btn' %>
+	<%= button_to 'Pedido', orders_path, method: :get, class: 'btn' %>
+</li>
+<li>
+	<%= button_to 'Productos', products_path, method: :get, class: 'btn' %>
 </li>
 <li>
 	<a href="http://localhost:3000/microempresa/<%= current_customer.id %>">Perfil</a>

@@ -26,6 +26,12 @@
 	font-weight: bold;
 	color: white;
 	display: flex;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+}
+body{
+	background-color: #e74c3c;
 }
 @media (max-width: 600px) {
 	.btn{

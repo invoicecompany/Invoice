@@ -2,6 +2,12 @@
 	Distribuidor
 </li>
 <li>
+	<%= button_to 'Mis Productos', products_path, method: :get, class: 'btn' %>
+</li>
+<li>
+	<%= button_to 'Inventario', distribuidor_inventario_path, method: :get, class: 'btn' %>
+</li>
+<li>
 	<a href="http://localhost:3000/distribuidor/<%= current_dealer.id %>">Perfil</a>
 </li>
 <li>

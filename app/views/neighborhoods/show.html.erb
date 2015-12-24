@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Barrio:</strong>
+  <%= @neighborhood.barrio %>
+</p>
+
+<p>
+  <strong>Fecha entrega:</strong>
+  <%= @neighborhood.fecha_entrega %>
+</p>
+
+<%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
+<%= link_to 'Back', neighborhoods_path %>

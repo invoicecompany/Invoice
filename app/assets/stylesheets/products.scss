@@ -1,3 +1,74 @@
-// Place all the styles related to the Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.contenedor-productos{
+	width:90%;
+	height: auto;
+	padding: 10px;
+	margin: 0px auto;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+.productos{
+	display: flex;
+	width: 200px;
+	background-color: #EEE;
+	flex-flow: column wrap;
+	margin: 5px;
+	padding: 15px;
+}
+.form-buscar{
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+.text-buscar{
+	width: 300px;
+}
+.form-productos{
+	display: flex;
+}
+.New_product{
+	display: flex;
+	width: 250px;
+	height: 250px;
+	background-color: #dddddd;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+	padding: 10px;
+}
+.foto-producto{
+	background-color: #dddddd;
+	width: 100%;
+	height: 150px;
+}
+.inf-producto{
+	line-height: 1.3;
+}
+.inf-producto p{
+	font-family: Calibri Light !important;
+	color: #969599;
+	font-size: 20px;
+}
+.inf-producto h2{
+	margin: 5px 0px;
+
+}
+.btn-producto{
+	background-color: #3498db;
+	width: 70%;
+	-webkit-box-shadow: inset 200px 0px 0px -150px rgba(41,128,185,1);
+	-moz-box-shadow: inset 200px 0px 0px -150px rgba(41,128,185,1);
+	box-shadow: inset 200px 0px 0px -150px rgba(41,128,185,1);
+}
+.cantidad-producto{
+	width: 30%;
+	text-align: center;
+}
+span{
+	margin: 0px 33px 0px 3px;
+}

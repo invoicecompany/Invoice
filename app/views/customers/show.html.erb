@@ -1,5 +1,23 @@
-<p><%= @Customer.email %></p>
-<% @Order.each do |order| %>
-	<% order.updated_at%>
-  <%= link_to order.updated_at, order_path, id: order.id %>
-<% end %>
+<div class="perfil-microempresa">
+	<header class="header-microempresa">
+		<div class="portada-microempresa"></div>
+		<nav class="nav-microempresa">
+			<div class="foto-microempresa"></div>
+			<p><%= @Customer.nombrepropietario %></p>
+			<p><%=  %></p>
+		</nav>
+	</header>
+	<section class="section-microempresa">
+		<div class="info-microempresa"></div>
+		<div class="contacto-microempresa"></div>
+		<div class="pedidos-microempresa">
+			<% @Order.each do |order| %>
+				<% order.updated_at%>
+				<div class="ultimasfacturas-microempresa">
+			  	<%= link_to order.updated_at, order_path, id: order.id %>
+			  	</div>
+			<% end %>
+			<%= button_tag 'Pedidos Antiguos'%>
+		</div>
+	</section>
+</div>

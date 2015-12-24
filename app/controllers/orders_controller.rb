@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!, only: [:new]
 
   # Sirver para agregar un nuevo producto al pedido
     def add_product
@@ -57,18 +57,31 @@ class OrdersController < ApplicationController
 #Sirve para hacer la compra y quedar guarda en la base de datos
 
     def new
+      $categoria = params[:categoria]
 
       $cart.each do  |cate, prod|
-        if cate == "Confiteria"
+        if cate == $categoria
           $peo = prod
         end
       
       end
 
-      Order.find_or_create_by(customer_id:  current_customer, fecha_entrega: Date.today ) do | order |
-        @produ = order.productos = order.productos.merge!($peo)
-        order.update(productos: @produ)
-        order.save
+
+#hoy = 6
+#entrega = 6
+#if entrega > hoy
+#entrega = hoy - entrega
+#else
+#entrega = hoy - entrega 
+#entrega = 7 - entrega
+#end 
+#@fecha_entrega = entrega.abs
+
+
+      @order = Order.find_or_create_by(customer_id:  2)
+      if @order
+        @produ = @order.productos.merge!($peo)
+       @order.update(:productos => @produ)
       end
       session[:cart] = nil
       redirect_to "http://localhost:3000/"

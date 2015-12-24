@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :neighborhoods
   resources :orders
       get '/add' => 'orders#add_product'
       get '/order/clear' => 'orders#clearCart'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :products
   
   devise_for :dealers
+    get '/distribuidor/inventario' => 'dealers#inventario'
   devise_for :customers
     get '/distribuidor/:id' => 'dealers#show'
     get '/microempresa/:id' => 'customers#show'

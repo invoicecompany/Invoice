@@ -1,18 +1,47 @@
-
+<div class="orders">
 <%= link_to 'Borrar pedido', order_clear_path %>
+<div class="categorias-orders">
+	<% @total = 0 %>
+	<% @cart.each do |cate,  prod| %>
+		<div class="categoria-order <%= cate %>">
+		<table>
+			<tr>
+				<th colspan="4"><%= cate %></th>
+			</tr>
 
-<% @cart.each do |cate,  prod| %>
-<table border="solid">
-
-	 <tr><th><%= cate %></th></tr>
-	<% prod.each do | id, cant| %>
-		<% @product = Product.find_by_id(id) %>
-		<tr><td><%= @product.nombre %></td></tr>
+			 <tr>
+			 	<th>Producto</th>
+			 	<th> Cantidad </th>
+			 	<th> Precio Unit </th>
+			 	<th> Precio </th>
+			 </tr>
+				<% prod.each do | id, quantity| %>
+				<% @product = Product.find_by_id(id) %>
+			<tr >
+				<td><%= @product.nombre %></td>
+				<td><%= quantity %></td>
+				<td><%= number_to_currency(@product.precio, :unit => '$' ) %></td>
+				<% totalproduct = @product.precio * quantity.to_i %>
+				<td class="border-right" ><%= number_to_currency(totalproduct, :unit => '$' ) %></td>
+				<% @total += quantity.to_i * @product.precio %>
+			</tr>	
+				<% end %>
+				
+			<tr>	<td colspan="2">Total</td>
+				<td class="border-right" colspan="2"><%= number_to_currency(@total, :unit => '$' ) %></td>
+			</tr>
+			<tr>	<td colspan="2">Puntos Ganados</td>
+				<td class="border-right" colspan="2"><%= @total / 1000 %></td>
+			</tr>
+			<tr>	
+				<td class="border-right" colspan="4"><%= link_to 'Comprar', controller: "orders", action: "new", categoria: cate %></td>
+			</tr>
+		</table>
+		</div>
 	<% end %>
-
-</table>
-<% end %>
-
-
-<%= link_to 'Comprar', controller: "orders", action: "new" %>
-<%= link_to 'Seguir Comprando', controller: "products", action: "index" %>
+</div>
+<footer class="footer-orders">
+	<%= link_to 'Comprar Todo', controller: "orders", action: "new" %>
+	<%= link_to 'Seguir Comprando', controller: "products", action: "index" %>
+</footer>
+</div>

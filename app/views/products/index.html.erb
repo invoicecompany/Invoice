@@ -1,32 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Products</h1>
+          <%= form_tag({controller: "products", action: "index" }, :method => "get", :class => 'form-buscar') do %>
+                        <%= text_field_tag :ask, :buscar ,class: "text-buscar", :placeholder => "Buscar Producto", :value => ""  %>
+                        <button type="submit" class = 'btn btn-buscar-producto' ><span class="icon-home"></span>Buscar</button>
+          <% end %>
 
-  <div class="contenedor_productos">
+  <div class="contenedor-productos">
     <% @products.each do |product| %>
       <div class="productos">
-        <div><strong>Nombre: </strong><%= product.nombre %></div>
-        <div><strong>Descripcion: </strong><%= product.descripcion %></div>
-        <div><strong>Codigo: </strong><%= product.codigo %></div>
-        <div><strong>Precio: </strong><%= product.precio %></div>
-        <div><strong>Categoria: </strong><%= product.categoria %></div>
-        <div><strong>Subcategoria: </strong><%= product.subcategoria %></div>
-        <div><strong>Marca: </strong><%= product.marca %></div>
-        <%if customer_signed_in? %>
-        <div>      <%= form_tag({controller: "orders", action: "add_product" }, :method => "get") do %>
-                      <%= hidden_field_tag( :cate , product.categoria ) %><br>
-                      <%= hidden_field_tag( :id , product.id ) %><br>
-                      <%= text_field_tag( :cant ) %><br>
-                      <%= submit_tag("Pedir") %><br>
-                      <% end %>
-        </div>
+        <div class="foto-producto"></div>
+          <div class="inf-producto">
+          <h3><%= product.nombre %></h3>
+          <p><%= product.marca %></p>
+          <h2><%= number_to_currency(product.precio, :unit => '$' ) %></h2>
+          </div>
+        <%if dealer_signed_in? %>
+
+                  <div><%= link_to 'Show', product %></div>
+                  <div><%= link_to 'Edit', edit_product_path(product) %></div>
+                  <div><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
         <% else %>
-        <div><%= link_to 'Show', product %></div>
-        <div><%= link_to 'Edit', edit_product_path(product) %></div>
-        <div><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+                  <div class="enviar-cant-producto">      
+                        <%= form_tag({controller: "orders", action: "add_product" }, :method => "get", :class => 'form-productos') do %>
+                        <button type="submit" class = 'btn btn-producto' ><span class="icon-shopping-cart"></span>Pedir</button>
+                        <%= hidden_field_tag( :cate , product.categoria ) %>
+                        <%= hidden_field_tag( :id , product.id ) %>
+                        <%= number_field_tag :cant, :cantidad, class: "cantidad-producto", :placeholder => "und", :required => true, in: 1...100 %>
+                        <% end %>
+                  </div>
+
         <% end %>
       </div>
-      <% end %>
+  <% end %>
 
 
     

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  barrio: MyString
+  fecha_entrega: 2015-12-22
+  dealer_id: 
+
+two:
+  barrio: MyString
+  fecha_entrega: 2015-12-22
+  dealer_id: 

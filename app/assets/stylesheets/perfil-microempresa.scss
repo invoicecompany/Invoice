@@ -1,0 +1,60 @@
+.perfil-microempresa{
+	  height: 665px; 
+ }
+ /* Aqui esta el Diseño de la parte superior donde esta la foto y el nav del perfil */
+.header-microempresa{
+	background-color: Red;
+	width: 100%;
+	height: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+.nav-microempresa{
+	display: flex;
+	height: 30px;
+}
+.foto-microempresa{
+	background-color: black;
+	width: 300px;
+	height: 300px;
+	position: relative;
+	top: -150px;
+	margin-left: 50px;
+}
+/* El Diseño de de la secion donde se encuentran 3 contenedores  */
+.section-microempresa{
+	display: flex;
+	align-items: flex-start;
+	background-color: Blue;
+	width: 100%;
+}
+.section-microempresa:last-child{
+	justify-content: flex-end;
+}
+
+.pedidos-microempresa{
+	width: 300px;
+	background-color: #EEE;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	margin: 10px 50px;
+}
+.ultimasfacturas-microempresa{
+	text-align: center;
+	background-color: white;
+	margin: 10px 0px;
+	padding: 10px 20px;
+	width: auto;
+}
+
+/* De Aqui para abajo esta el responsive de la pagina de perfil de la microempresa */
+@media (max-width: 600px) {
+	.section-microempresa{
+		justify-content: center;
+	}
+	.ultimasfacturas-microempresa{
+		display: none;
+	}
+}
